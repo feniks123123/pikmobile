@@ -1,12 +1,31 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, UINavigationController } from 'react-native';
+import { BrowserRouter as Router, Link } from 'react-router-native';
+
+const link = [
+  'test',
+  'test2',
+  'test4',
+  't32',
+];
 
 export default class App extends React.Component {
+  state = {
+    complex: null
+  };
+
+  componentDidMount() {
+    fetch('https://api.pik.ru/v1/block?types=1,2&metadata=1&statistics=1&images=1&locations=2,3')
+      .then(res => res.json())
+      .then(complex => this.setState({ complex }))
+  }
+
   render() {
+    const { complex } = this.state;
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <Router style={styles.container}>
+        { link.map((item) => <Link to={ item }>{ item }</Link>) }
+      </Router>
     );
   }
 }
