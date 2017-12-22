@@ -4,8 +4,10 @@
   "dependencies": {
     "axios": "^0.17.1",
     "expo": "^24.0.0",
+    "ionicons": "^3.0.0",
     "react": "16.0.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-24.0.0.tar.gz",
+    "react-navigation": "^1.0.0-beta.22",
     "react-router-native": "^4.2.0"
   }
 }
